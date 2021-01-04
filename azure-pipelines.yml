@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-lates
+  vmImage: 'ubuntu-latest'
 
 jobs:
 - job: job1
@@ -17,4 +17,4 @@ jobs:
   
   - script:
       echo add other tasks to build and deploy
-      displayName: 'Run a multi line script'
+      displayName:'Run a multi line script'
