@@ -15,12 +15,21 @@ stages:
   - job: Firstjob
     steps:
     - bash: echo Build firstjob
-  - job: SecondJob
-    steps:
-    - bash: echo Build SecondJob
 - stage: DevDeploy
-  dependsOn: Build
   jobs:
-  - job: DevDeployjob
-    steps:
-    - bash: echo DevDeployJob
+  - deployment: DevDeployjob
+    environment: Dev
+    strategy:
+     runOnce:
+       deploy:
+         steps:
+         - script: echo deploy to dev
+- stage: QADeploy
+  jobs:
+  - deployment: QADeployjob
+    environment: QA
+    strategy:
+     runOnce:
+       deploy:
+         steps:
+         - script: echo deploy to QA
