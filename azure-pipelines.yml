@@ -24,7 +24,7 @@ stages:
        deploy:
          steps:
          - script: echo deploy to dev
-- stage: QADeploy
+- stage: QADeploy1
   jobs:
   - deployment: QADeployjob
     environment: TEST
@@ -33,7 +33,7 @@ stages:
        deploy:
          steps:
          - script: echo deploy to QA
-- stage: QADeploy
+- stage: QADeploy2
   jobs:
   - deployment: QADeployjob
     environment: ACCEPTANCE
@@ -42,7 +42,7 @@ stages:
        deploy:
          steps:
          - script: echo deploy to QA
-- stage: QADeploy
+- stage: QADeploy3
   jobs:
   - deployment: QADeployjob
     environment: prod
