@@ -27,7 +27,25 @@ stages:
 - stage: QADeploy
   jobs:
   - deployment: QADeployjob
-    environment: QA
+    environment: TEST
+    strategy:
+     runOnce:
+       deploy:
+         steps:
+         - script: echo deploy to QA
+- stage: QADeploy
+  jobs:
+  - deployment: QADeployjob
+    environment: ACCEPTANCE
+    strategy:
+     runOnce:
+       deploy:
+         steps:
+         - script: echo deploy to QA
+- stage: QADeploy
+  jobs:
+  - deployment: QADeployjob
+    environment: prod
     strategy:
      runOnce:
        deploy:
